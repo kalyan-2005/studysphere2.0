@@ -83,12 +83,12 @@ export default function Layout({ children, currentUser }) {
       {currentUser ? (
         <div className="flex min-h-[90vh]">
           {/* side bar */}
-          <div className={`${isOpen ? 'w-[18vw]' : ''} flex bg-orange-50 flex-col justify-between `}>
+          <div className={`${isOpen ? '' : ''} max-[600px]:absolute max-[600px]:text-sm flex bg-orange-50 flex-col justify-between `}>
             <div>
               {links.map((link) => {
                 return (
                   <div onClick={() => router.push(link.path)} className={(link.active ? "w-full h-[50px] flex items-center gap-3 px-2 bg-orange-200" : "bg-orange-50 w-full h-[50px] cursor-pointer flex items-center gap-3 hover:bg-orange-100 px-2 ")} key={link.name}>
-                    <h1 className="text-xl px-3">{link.icon}</h1>
+                    <h1 className="text-xl sm:px-3">{link.icon}</h1>
                     <h1 className={`${isOpen === false && 'hidden'}`}>{link.name}</h1>
                   </div>
                 );
@@ -103,7 +103,7 @@ export default function Layout({ children, currentUser }) {
           </div>
           <AnimatePresence key={pathname}>
             <motion.div
-              className={`w-full`}
+              className={`w-full max-[600px]:ml-10`}
               initial={{ y: '-100vw', opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.8 }}

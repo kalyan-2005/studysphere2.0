@@ -33,12 +33,12 @@ function HomePage({ currentUser }) {
   }, []);
   const router = useRouter();
   return (
-    <div className="flex h-full">
-      <div className="w-[70%] p-5">
-        <div className="flex gap-4">
-          <div>
+    <div className="sm:flex h-full max-[600px]:text-sm">
+      <div className="w-[90%] sm:w-[70%] p-2 sm:p-5">
+        <div className="sm:flex w-[90%] gap-4">
+          <div className="flex items-center justify-center">
             <Image
-              src={currentUser.image} width={100} height={100} className="rounded"
+              src={currentUser.image} width={100} height={100} className="rounded min-w-[100px]"
               alt="profile"
             />
           </div>
@@ -49,12 +49,12 @@ function HomePage({ currentUser }) {
             <h1><span className="font-semibold">CreatedAt :</span> <span className="text-gray-500 ml-2">{currentUser.createdAt.toString()}</span></h1>
           </div>
         </div>
-        <table className="w-[80%] m-auto border mt-12">
+        <table className="w-[90%] sm:w-[80%] m-auto border mt-12">
           <thead>
-            <tr className="text-cyan-600">  
-              <th className="p-3 border text-center">Id</th>
+            <tr className="text-cyan-600">
+              {/* <th className="p-3 border text-center">Id</th> */}
               <th className="p-3 border text-center">Name</th>
-              <th className="p-3 text-center flex justify-center items-center">Points <GiTargetArrows className="ml-3 h-5 w-5"/></th>
+              <th className="p-3 text-center flex justify-center items-center">Points <GiTargetArrows className="ml-3 h-5 w-5" /></th>
             </tr>
           </thead>
           <tbody>
@@ -65,7 +65,7 @@ function HomePage({ currentUser }) {
                   className="hover:bg-gray-100 cursor-pointer text-gray-600"
                   key={quiz.id}
                 >
-                  <td className="p-3 border text-center">{quiz.id}</td>
+                  {/* <td className="p-3 border text-center">{quiz.id}</td> */}
                   <td className="p-3 border text-center">{quiz.Quiz.name}</td>
                   <td className="p-3 border text-center">{quiz.points}</td>
                 </tr>
@@ -74,7 +74,8 @@ function HomePage({ currentUser }) {
           </tbody>
         </table>
       </div>
-      <div className="border-l p-5 w-[30%]">
+      {/* friends-in-dashbord */}
+      <div className="border-l p-5 w-full sm:w-[30%]">
         <span className="font-semibold">Friends</span>
         {allUsers
           .filter((user) => user.isFriend && user.id !== currentUser.id)
@@ -83,7 +84,7 @@ function HomePage({ currentUser }) {
               <div
                 className="flex items-center gap-2 mt-3 cursor-pointer p-2 border border-cyan-300 rounded-md justify-between hover:bg-gray-100"
                 key={user.id}
-                onClick={()=>router.push(`/message/${user.id}`)}
+                onClick={() => router.push(`/message/${user.id}`)}
               >
                 <div className="flex gap-5 items-center">
                   <Image
