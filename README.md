@@ -1,6 +1,6 @@
-### **Study Sphere**
+# **Study Sphere**
 
-# Getting Started
+### Getting Started
 To explore our website, you can use the following credentials:
 
 - **Username**: test@gmail.com
